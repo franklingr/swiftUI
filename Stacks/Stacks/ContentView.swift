@@ -9,26 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            HeaderView()
+        VStack(spacing: 30) {
+            HStack {
+                HeaderView()
+                    .padding()
+                
+                Spacer()
+            }
             
-            HStack(spacing: 8) {
-                PricingView(title: "Plan Básico", price: "9.99€", subtitle: "Un curso incluido", backgraundColor: .green)
+            
+            ZStack {
+                PricingView(title: "Plan Básico", price: "9.99€", subtitle: "Un curso incluido", backgraundColor: .green, icon: "star")
                 
-                ZStack {
-                    PricingView(title: "Carrera", price: "29.99€", subtitle: "Toda una Carrera", backgraundColor: .secondary, tagText: "El mejor para empezar")
+                PricingView(title: "Carrera", price: "29.99€", subtitle: "Toda una Carrera", backgraundColor: .gray, icon: "timer", tagText: "El mejor para empezar")
+                    .offset(x: 0, y: 110)
+                
+                PricingView(title: "Definitivo", price: "99.99€", subtitle: "Todos los cursos online", backgraundColor: .black, icon: "lightbulb", tagText: "Conviértete en un master del universo")
+                    .offset(x: 0, y: 220)
                     
-                        
-                }
-                
             }
             
             .padding()
             
-            PricingView(title: "Definitivo", price: "99.99€", subtitle: "Todos los cursos online", backgraundColor: Color.black, icon: "lightbulb", tagText: "Conviértete en un master del universo")
-                .padding(.horizontal)
+            Spacer()
             
         }
+        
     }
 }
 
