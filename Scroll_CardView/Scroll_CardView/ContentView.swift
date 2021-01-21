@@ -14,7 +14,7 @@ struct ContentView: View {
                 Text("Juan Gabriel Gomila")
                     .font(.system(.largeTitle, design: .rounded))
                     .fontWeight(.bold)
-                Text("UCI, Profesor universitario y CEO de FROGAMES")
+                Text("UCI, Profesor universitario y CEO de FROGAMES ltd")
                     .fontWeight(.light)
                     .foregroundColor(.secondary)
                 Text("139.245 estudiantes - 59 cursos - 23.400 reseñas")
