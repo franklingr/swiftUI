@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             
-            Button(action: {
+           /* Button(action: {
                 print("Botón hola pulsado!")
                 
             }) {
@@ -35,7 +35,20 @@ struct ContentView: View {
                     .shadow(radius: 5, x: -5, y: 5 )*/
                     
             }
-            .padding()
+            .padding()*/
+            
+            Button(action: {
+                
+            }, label: {
+                HStack {
+                    Image(systemName: "square.and.pencil")
+                    
+                    Text("Editar")
+                        .fontWeight(.bold)
+                        
+                }
+            })
+            .buttonStyle(BasicButtonStyle())
             
             Button(action: {
                 
@@ -47,19 +60,53 @@ struct ContentView: View {
                         .fontWeight(.bold)
                         
                 }
-                .padding()
-                .background(LinearGradient(gradient: Gradient(colors: [Color("Dark Ocean 1"), Color("Dark Ocean 2")]), startPoint: .leading, endPoint: .trailing))
-                .font(.largeTitle)
-                .foregroundColor(.white)
-                .cornerRadius(45)
             })
+            .buttonStyle(BasicButtonStyle())
+            
+            Button(action: {
+                
+            }, label: {
+                HStack {
+                    Image(systemName: "square.and.arrow.up")
+                    
+                    Text("Compartir")
+                        .fontWeight(.bold)
+                        
+                        
+                }
+                
+            })
+            .buttonStyle(BasicButtonStyle())
+        
         }
         
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct BasicButtonStyle: ButtonStyle {
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding()
+            .background(LinearGradient(gradient: Gradient(colors: [Color("Dark Ocean 1"), Color("Dark Ocean 2")]), startPoint: .leading, endPoint: .trailing))
+            .font(.largeTitle)
+            .foregroundColor(.white)
+            .cornerRadius(45)
+            .shadow(color: .blue, radius: 10.0, x: 20, y: 5)
+            .padding(.horizontal, 15)
+            //.scaleEffect(configuration.isPressed ? 0.8 : 1.0)
+            .rotationEffect(configuration.isPressed ? .degrees(90) : .degrees(0))
+            
+        
+            
     }
 }
